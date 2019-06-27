@@ -103,3 +103,11 @@ For example:
 CGO_CFLAGS_ALLOW="-w|-UXMLSEC_CRYPTO_DYNAMIC_LOADING" go build
 ```
 
+## License
+
+Foam is copyright (c) 2019 Maxi Mobility Spain.
+
+Licensed under the Apache License, Version 2.0 (the "License").
+
+Check [LICENSE](./blob/master/LICENSE) for more information.
+
