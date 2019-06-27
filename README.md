@@ -107,7 +107,7 @@ CGO_CFLAGS_ALLOW="-w|-UXMLSEC_CRYPTO_DYNAMIC_LOADING" go build
 
 Foam is copyright (c) 2019 Maxi Mobility Spain.
 
-Licensed under the Apache License, Version 2.0 (the "License").
+Licensed under the Apache License, Version 2.0.
 
-Check [LICENSE](./blob/master/LICENSE) for more information.
+Check [LICENSE](./LICENSE) for more information.
 
