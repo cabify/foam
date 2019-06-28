@@ -6,13 +6,14 @@
 Foam is a SOAP 1.1 client for Go which implements the [WSS BinarySecurityToken](https://www.oasis-open.org/committees/download.php/16790/wss-v1.1-spec-os-SOAPMessageSecurity.pdf)
 and [XML Signature](https://www.w3.org/TR/xmldsig-core1/) standards.
 
-Currently it supports only signing with X.509 certificates using the [`rsa-sha1`](https://www.w3.org/TR/xmldsig-core1/#sec-PKCS1)
+It supports signing with X.509 certificates using the [`rsa-sha1`](https://www.w3.org/TR/xmldsig-core1/#sec-PKCS1)
 algorithm.
 
-#### Warning
+#### Dependencies
 
 This package uses `cgo` and has an hard-dependency on [XMLSec](https://www.aleksey.com/xmlsec/)
 and [LibXML2](http://xmlsoft.org/), so don't skimp on the installation instructions.
+
 Due to this dependency, this library is not recommended for simpler use-cases
 where XML Digital Signature is not a requirement.
 
