@@ -108,7 +108,7 @@ func (c *Client) Call(ctx context.Context, endpoint string, payload, response in
 	if err != nil {
 		return fmt.Errorf("create request: %v", err)
 	}
-	req.WithContext(ctx)
+	req = req.WithContext(ctx)
 	req.Header.Set("SOAPAction", endpoint)
 	req.Header.Set("Content-Type", `text/xml; charset="utf-8"`)
 
