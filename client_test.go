@@ -72,7 +72,9 @@ func TestClient_Call(t *testing.T) {
 	doer := mockClient{T: t}
 
 	doer.On("Do", mock.Anything).Return(&http.Response{
-		Body: ioutil.NopCloser(bytes.NewReader([]byte(`<test foo="foo" />`))),
+		Body:       ioutil.NopCloser(bytes.NewReader([]byte(`<test foo="foo" />`))),
+		Status:     "OK",
+		StatusCode: http.StatusOK,
 	}, nil)
 
 	client, err := NewClient(
