@@ -83,6 +83,15 @@ func NewClient(wsdlUrl string, setters ...Option) (*Client, error) {
 	}, nil
 }
 
+type ErrHTTP struct {
+	StatusCode int
+	Status     string
+}
+
+func (e ErrHTTP) Error() string {
+	return fmt.Sprintf("http error: %v: %v", e.StatusCode, e.Status)
+}
+
 // Call performs a SOAP 1.1 request to the specified endpoint.
 //
 // The payload will be seialized to XML and then included into a SOAP 1.1
@@ -115,6 +124,12 @@ func (c *Client) Call(ctx context.Context, endpoint string, payload, response in
 	res, err := c.client.Do(req)
 	if err != nil {
 		return fmt.Errorf("call %s: %v", endpoint, err)
+	}
+	if res.StatusCode != 200 {
+		return ErrHTTP{
+			StatusCode: res.StatusCode,
+			Status:     res.Status,
+		}
 	}
 	defer res.Body.Close()
 
